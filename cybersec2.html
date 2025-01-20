@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road 2 DEVSOC - Enrollment Portal</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #F7F3F0;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header img {
+      height: 60px;
+      animation: logo-spin 10s linear infinite;
+      justify-content: space-between;
+      margin-right: 40px;
+    }
+
+    @keyframes logo-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+        header {
+    background: linear-gradient(to right, #6A11CB, #2575FC);
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #FFF;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    text-align: center; /* Center text within h1 */
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #FFF;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+    }
+
+    h2 {
+      color: #6A11CB;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    input, select, textarea {
+      margin-top: 10px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #6A11CB;
+      box-shadow: 0 0 10px rgba(106, 17, 203, 0.4);
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      background: linear-gradient(to right, #6A11CB, #2575FC);
+      color: #FFF;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      align-self: center;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #2575FC, #6A11CB);
+      box-shadow: 0 4px 15px rgba(106, 17, 203, 0.5);
+    }
+
+    .links {
+      margin-top: 30px;
+    }
+
+    .links a {
+      display: block;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #6A11CB;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      color: #2575FC;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    /* Hidden Flags */
+    .flag {
+      font-size: 0.9rem;
+      color: #FFF;
+      position: absolute;
+      top: -9999px;
+      user-select: none; /* Make it harder to highlight */
+    }
+
+    .flag.hidden-in-source {
+      position: absolute;
+      top: -9999px;
+    }
+
+    .flag.footer {
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    .realistic-links {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .security-warning {
+      display: none;
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .realistic-links .fake {
+      color: #E74C3C; /* Fake link with malicious intent */
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .realistic-links:hover .security-warning {
+      display: block;
+    }
+
+    .realistic-links .fake:hover {
+      text-decoration: underline;
+    }
+
+    /* Phishing demo styles */
+    .phishing-message {
+      display: none;
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="DEVSOC.png" alt="DEVSOC Logo">
+    <h1>Road 2 DEVSOC</h1>
+  </header>
+
+  <main>
+    <h2>Welcome to the Enrollment Portal</h2>
+    <p>
+      Enroll for the most awaited hackathon of the year! Compete with the best minds, learn cutting-edge tech, and showcase your creativity. Fill out the form below to get started!
+    </p>
+
+    <form id="enrollment-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="John Doe">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="john.doe@example.com">
+
+      <label for="rating">Rate Last Year's Event:</label>
+      <select id="rating" name="rating">
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Average</option>
+        <option value="2">Poor</option>
+        <option value="1">Very Poor</option>
+      </select>
+
+      <label for="feedback">Additional Feedback:</label>
+      <textarea id="feedback" name="feedback" placeholder="Share your thoughts..." rows="4"></textarea>
+
+      <button type="submit">Submit Enrollment</button>
+    </form>
+
+    <div class="links">
+      <p>For more information, visit the official documentation:</p>
+      <a href="https://github.com/conductor-oss/conductor" target="_blank">GitHub Link - Conductor</a>
+      
+      <p>Alternatively, explore this <span class="realistic-links">
+        <a href="https://giithub.com/conductor-oss/conductor" class="fake" target="_blank">GitHub Resource</a>.
+        <span class="security-warning">⚠️ This link looks suspicious!</span>
+      </span></p>
+    </div>
+
+    <div class="phishing-message" id="phishing-message">
+      <p><strong>⚠️ Warning: You've submitted your details to a fake site! Be cautious about where you enter sensitive information.</strong></p>
+      <p><strong>Here's what was sent:</strong></p>
+      <p><strong>Name:</strong> <span id="submitted-name"></span></p>
+      <p><strong>Email:</strong> <span id="submitted-email"></span></p>
+      <p><strong>Rating:</strong> <span id="submitted-rating"></span></p>
+      <p><strong>Feedback:</strong> <span id="submitted-feedback"></span></p>
+    </div>
+
+    <!-- Hidden Flags -->
+    <p class="flag hidden-in-source">Flag{SourceCode-Inspection}</p>
+    <p class="flag footer">Flag{Footer-Clue}</p>
+  </main>
+
+  <footer>
+    <p>© 2025 Road 2 DEVSOC | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    document.getElementById('enrollment-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Simulating the phishing demo - data submission to a fake website
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const rating = document.getElementById('rating').value;
+      const feedback = document.getElementById('feedback').value;
+
+      // Show phishing message with user-submitted details
+      document.getElementById('submitted-name').textContent = name;
+      document.getElementById('submitted-email').textContent = email;
+      document.getElementById('submitted-rating').textContent = rating;
+      document.getElementById('submitted-feedback').textContent = feedback;
+      document.getElementById('phishing-message').style.display = 'block';
+
+      // Simulating sending details to a fake site (for demo purposes only)
+      //console.log('User details submitted to phishing website: ', { name, email, rating, feedback });
+
+      // Display phishing flag alert
+      //alert('Warning: You have just submitted your details to a suspicious website. Always verify URLs to avoid phishing attacks!');
+      const userData = {
+            name: name,
+            email: email,
+            rating: rating,
+            feedback: feedback
+        };
+
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        // Redirect to the fake phishing website
+        window.location.href = 'malicious_site.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Website - Data Submitted</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #F0F0F0;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #FF6347;
+    }
+
+    .container {
+      background-color: #FFF;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #FF6347;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Submitted Successfully</h1>
+  <div class="container">
+    <h2>Here are the details you submitted:</h2>
+    <p><span class="highlight">Full Name:</span> <span id="submitted-name">John Doe</span></p>
+    <p><span class="highlight">Email:</span> <span id="submitted-email">john.doe@example.com</span></p>
+    <p><span class="highlight">Rating:</span> <span id="submitted-rating">Excellent</span></p>
+    <p><span class="highlight">Additional Feedback:</span> <span id="submitted-feedback">Great event last year!</span></p>
+  </div>
+
+  <footer>
+    <p>⚠️ This is a phishing demo. Always verify the website you're interacting with before submitting any sensitive data!</p>
+  </footer>
+
+  <script>
+    // Get the data from localStorage (simulating data submission from the previous page)
+    const userData = JSON.parse(localStorage.getItem('userData'));
+
+    if (userData) {
+      // Display the submitted data on the page
+      document.getElementById('submitted-name').textContent = userData.name;
+      document.getElementById('submitted-email').textContent = userData.email;
+      document.getElementById('submitted-rating').textContent = userData.rating;
+      document.getElementById('submitted-feedback').textContent = userData.feedback;
+    }
+  </script>
+</body>
+</html>
